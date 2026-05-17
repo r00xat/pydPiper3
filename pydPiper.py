@@ -581,7 +581,7 @@ class music_controller(threading.Thread):
                     used = int(va[2])
                     availp = 100-usedp
 
-            except AttributeError:
+            except Exception:
                 avail = 0
                 availp = 0
                 usedp = 0
