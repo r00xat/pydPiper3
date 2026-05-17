@@ -1,12 +1,16 @@
 [Unit]
-Description = pydPiper
+Description = pydPiper LCD Service
 Requires = docker.service
-After=volumio.service
+After = docker.service mpd.service
 
 [Service]
 Restart = always
-ExecStart = /usr/bin/docker run --rm --network=host --privileged --name pydpiper -v /var/log:/var/log:rw -v /home/volumio/pydPiper3:/app:rw synoniem/pydpiper3:latest python /app/pydPiper.py
-ExecStop = /usr/bin/docker stop -t 2 synoniem/pydpiper3:latest
+# -----------------------------------------------------------------------------------------
+# ATTENTION: If your username is not 'r00x', change '/home/r00x/pydPiper3' in ExecStart 
+# to your actual home directory path (e.g., /home/pi/pydPiper3 or /home/volumio/pydPiper3)
+# -----------------------------------------------------------------------------------------
+ExecStart = /usr/bin/docker run --rm --network=host --privileged --name pydpiper -v /var/log:/var/log:rw -v /home/r00x/pydPiper3:/app:rw synoniem/pydpiper3:latest python /app/pydPiper.py
+ExecStop = /usr/bin/docker stop -t 2 pydpiper
+
 [Install]
 WantedBy = multi-user.target
-
