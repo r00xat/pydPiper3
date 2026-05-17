@@ -103,8 +103,8 @@ class hd44780(lcd_display_driver.lcd_display_driver):
 
 		self.rows = rows
 		self.cols = cols
-		self.rows_char = rows/8
-		self.cols_char = cols/5
+		self.rows_char = int(rows/8)
+		self.cols_char = int(cols/5)
 		self.curposition = (0,0)
 
 		self.enable_duration = enable_duration
