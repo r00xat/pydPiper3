@@ -3,6 +3,16 @@ pydPiper adapted for use with Python3
 
 Improving the version of dhrone/pydPiper for Raspberry Zero webradioproject with DAC, Volumio and 16x2LCD
 
+# pydPiper - MoodeAudio 10.2 & 20x4 LCD Fixes
+
+This fork contains custom fixes for **MoodeAudio 10.2** running on a parallel **20x4 HD44780 LCD display**.
+
+### Modified Files & Changes:
+* **`displays/hd44780.py`**: Fixed a Python 3 float-to-int type casting crash inside the driver.
+* **`pydPiper.py`**: Patched system statistics to prevent crashes caused by Moode 10.2's new `df` command format.
+* **`pages_lcd_20x4.py`**: Optimized for Webradio to suit my personal preferences
+* **`pydpiper.service`**: Updated for systemd auto-start (Note: remember to check and adjust the path/username inside this file).
+
 # NL
 Een verbeterde versie van dhrone/pydPiper en synoniem/pydPiper met de verbeteringen zoals ik die gebruik bij mijn webradioproject (https://synoniem.tweakblogs.net/blog/18684/pi-zero-radio). Zoals een nieuwe pydpiper.service bestand en een nieuw pydPiper.cfg bestand. Ondersteuning voor 24 uurs versie klok op het 16x2LCD display (pages_lcd_16x2.py). Toegevoegd ondersteuning van de weersverwachting van het KNMI in plaats van  Wunderground of Accuweather.
 
